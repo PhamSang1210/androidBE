@@ -1,14 +1,14 @@
 import express from "express";
 import {
-    changePassword,
-    forgetpassword,
-    getMyProfile,
-    login,
-    logOut,
-    resetpassword,
-    signup,
-    updatePic,
-    updateProfile,
+  changePassword,
+  forgetpassword,
+  getMyProfile,
+  login,
+  logOut,
+  resetpassword,
+  signup,
+  updatePic,
+  updateProfile,
 } from "../controllers/user.js";
 import { isAuthenticated } from "../middlewares/auth.js";
 import { singleUpload } from "../middlewares/multer.js";

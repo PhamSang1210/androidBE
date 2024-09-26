@@ -10,10 +10,7 @@ export const isAuthenticated = asyncError(async (req, res, next) => {
 
     if (!token) return next(new ErrorHandler("Not Logged In", 401));
 
-    const decodedData = jwt.verify(
-        token,
-        process.env.JWT_SECRET || "asdjg78qtee17367tasdyasgfda"
-    );
+    const decodedData = jwt.verify(token, "asdjg78qtee17367tasdyasgfda");
 
     req.user = await User.findById(decodedData._id);
 

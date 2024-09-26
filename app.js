@@ -22,9 +22,7 @@ app.use(
 );
 
 app.get("/", (req, res, next) => {
-    res.json({
-        name: "Ok",
-    });
+    res.send("Working");
 });
 
 // Importing Routers here

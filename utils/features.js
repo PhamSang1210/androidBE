@@ -23,23 +23,18 @@ export const sendToken = (user, res, message, statusCode) => {
 };
 
 export const cookieOptions = {
-    secure:
-        process.env.NODE_ENV || "Development" === "Development" ? false : true,
-    httpOnly:
-        process.env.NODE_ENV || "Development" === "Development" ? false : true,
-    sameSite:
-        process.env.NODE_ENV || "Development" === "Development"
-            ? false
-            : "none",
+    secure: "Development" === "Development" ? false : true,
+    httpOnly: "Development" === "Development" ? false : true,
+    sameSite: "Development" === "Development" ? false : "none",
 };
 
 export const sendEmail = async (subject, to, text) => {
     const transporter = createTransport({
-        host: process.env.SMTP_HOST || 2902,
-        port: process.env.SMTP_PORT || 2902,
+        host: 2902,
+        port: 2902,
         auth: {
-            user: process.env.SMTP_USER || "user",
-            pass: process.env.SMTP_PASS || 6726772,
+            user: "user",
+            pass: 6726772,
         },
     });
 

@@ -62,13 +62,9 @@ schema.methods.comparePassword = async function (enteredPassword) {
 };
 
 schema.methods.generateToken = function () {
-    return jwt.sign(
-        { _id: this._id },
-        process.env.JWT_SECRET || "asdjg78qtee17367tasdyasgfda",
-        {
-            expiresIn: "15d",
-        }
-    );
+    return jwt.sign({ _id: this._id }, "asdjg78qtee17367tasdyasgfda", {
+        expiresIn: "15d",
+    });
 };
 
 export const User = mongoose.model("User", schema);
