@@ -3,6 +3,8 @@ import { config } from "dotenv";
 import { errorMiddleware } from "./middlewares/error.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import compression from "compression";
+import helmet from "helmet";
 
 config({
     path: "./data/config.env",
@@ -11,6 +13,9 @@ config({
 export const app = express();
 
 // Using Middlewares
+app.use(helmet());
+app.use(compression());
+app.use();
 app.use(express.json());
 app.use(cookieParser());
 app.use(
