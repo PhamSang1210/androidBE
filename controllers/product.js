@@ -8,6 +8,7 @@ import { Category } from "../models/category.js";
 export const getAllProducts = asyncError(async (req, res, next) => {
     const { keyword, category } = req.query;
 
+    console.log("GET ALL PRODUCT");
     const products = await Product.find({
         name: {
             $regex: keyword ? keyword : "",
@@ -143,7 +144,9 @@ export const deleteProductImage = asyncError(async (req, res, next) => {
 });
 
 export const deleteProduct = asyncError(async (req, res, next) => {
+    console.log(1);
     const product = await Product.findById(req.params.id);
+    console.log(product);
     if (!product) return next(new ErrorHandler("Product not found", 404));
 
     for (let index = 0; index < product.images.length; index++) {
@@ -185,7 +188,7 @@ export const deleteCategory = asyncError(async (req, res, next) => {
         await product.save();
     }
 
-    await category.remove();
+    await category.deleteOne();
 
     res.status(200).json({
         success: true,
