@@ -5,7 +5,9 @@ import Stripe from "stripe";
 
 connectDB();
 
-export const stripe = new Stripe("aewe");
+export const stripe = new Stripe(
+    "sk_test_51Q3vwIHaUIggDLgSD3y9P5SDRGjyXmVGAcTZDeNYOdWnOD8Z51S8yDBvgRut6yylAGnnrf8Jlw7QNGHRPHwLiLY000UIsM3XhK"
+);
 
 cloudinary.v2.config({
     cloud_name: "deu1fhggt",
